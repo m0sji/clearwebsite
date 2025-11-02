@@ -121,4 +121,96 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     );
   }
+
+  // Smooth-scroll active nav highlight on scroll
+  const navLinks = Array.from(
+    document.querySelectorAll('#nav-menu a[href^="#"]')
+  );
+  const dropdownToggles = Array.from(document.querySelectorAll('.dropdown .dropdown_toggle'));
+  if (navLinks.length) {
+    const map = new Map();
+    navLinks.forEach((a) => {
+      const id = a.getAttribute('href')?.slice(1);
+      if (!id) return;
+      const el = document.getElementById(id);
+      if (el) map.set(el, a);
+    });
+
+    const setActive = (anchor) => {
+      navLinks.forEach((l) => l.classList.remove('active'));
+      anchor?.classList.add('active');
+      const dd = anchor?.closest('.dropdown');
+      dropdownToggles.forEach((btn) => {
+        const btnDD = btn.closest('.dropdown');
+        btn.classList.toggle('active', dd && btnDD === dd);
+      });
+    };
+
+    let currentAnchor = null;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let topMost = null;
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          if (!topMost || entry.boundingClientRect.top < topMost.boundingClientRect.top) {
+            topMost = entry;
+          }
+        });
+        if (topMost) {
+          const a = map.get(topMost.target);
+          if (a && a !== currentAnchor) {
+            currentAnchor = a;
+            setActive(a);
+          }
+        }
+      },
+      {
+        root: null,
+        rootMargin: `-${parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 72}px 0px -60% 0px`,
+        threshold: [0, 0.25, 0.5, 0.75, 1],
+      }
+    );
+
+    map.forEach((_, el) => observer.observe(el));
+
+    // Also update active state on click immediately
+    navLinks.forEach((a) =>
+      a.addEventListener('click', () => {
+        setActive(a);
+      })
+    );
+
+    // If focus enters dropdown via keyboard, reflect active on toggle
+    dropdownToggles.forEach((btn) => {
+      const dd = btn.closest('.dropdown');
+      dd?.addEventListener('mouseenter', () => {
+        if (!dd.querySelector('a.active')) return;
+        btn.classList.add('active');
+      });
+      dd?.addEventListener('mouseleave', () => {
+        if (!dd.querySelector('a.active')) btn.classList.remove('active');
+      });
+      dd?.addEventListener('focusin', () => {
+        if (dd.querySelector('a.active')) btn.classList.add('active');
+      });
+      dd?.addEventListener('focusout', () => {
+        if (!dd.querySelector('a.active')) btn.classList.remove('active');
+      });
+    });
+  }
+
+  // Back to top button
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    const updateBtt = () => {
+      const visible = getY() > 300;
+      backToTop.classList.toggle('is-visible', visible);
+    };
+    updateBtt();
+    window.addEventListener('scroll', updateBtt, { passive: true });
+    backToTop.addEventListener('click', () => {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+    });
+  }
 });
