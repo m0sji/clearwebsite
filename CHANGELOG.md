@@ -25,6 +25,10 @@
 - Added CSRF-exempt decorators for frontend integration.
 - Provided clear success/error JSON responses for frontend JavaScript.
 - Configured settings.py and urls.py for API routing and static files.
+- New informative and contextual text content throughout the homepage.
+- Expanded hero, about, and footer sections with descriptive and relevant text.
+- Added short explanations in Services, Pricing, and Contact sections to improve clarity.
+- Included keywords and readable phrasing for improved SEO and user engagement.
 
 ### Changed
 
@@ -40,7 +44,11 @@
 - Fixed incorrect Home anchor (`#home` → `#hero`).
 - Fixed missing HttpResponse returns in API views.
 - Fixed image, CSS, and JS loading errors through proper Django static setup.
-
+- Replaced placeholder and lorem ipsum text with real, meaningful content related to **AI în Acțiune**.
+- Updated section headings and subheadings to better match the project's tone and purpose.
+- Improved grammar, consistency, and readability across all text blocks.
+- Adjusted button labels and call-to-action phrases for a clearer user flow.
+- Refined text alignment and spacing where new content affected layout.
 ### Technical Notes
 
 - Files updated:
@@ -52,3 +60,7 @@
 - backend/api/admin.py — registered models in Django Admin.
 - backend/backend/settings.py — added api app, static file setup.
 - backend/backend/urls.py — added /api/ routes for backend endpoints.
+- File updated:
+  - `backend/templates/index.html` — replaced placeholder text with finalized descriptive content across all sections.
+- Branch: `feature/add-useful-text-section`
+- Purpose: improve content quality, clarity, and project presentation.
