@@ -29,13 +29,25 @@
         </button>
 
         <ul id="nav-menu" class="nav_menu">
-          <li><a href="#home">Home</a></li>
+          <li><a href="#hero">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#team">Team</a></li>
+          <li><a href="#pricing">Pricing</a></li>
           <li><a href="#blogjmp">Blog</a></li>
-          <li><a class="nav_cta" href="#contact">Contact</a></li>
+          <li class="dropdown">
+            <button class="dropdown_toggle" aria-haspopup="true" aria-expanded="false" type="button">
+              Dropdown <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown_menu" role="menu">
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
+        <a class="nav_cta_btn" href="#contact">Get Started</a>
       </nav>
     </header>
     <main class="main">
@@ -65,6 +77,8 @@
           </div>
         </div>
       </section>
+
+      
 
       <section class="logo_strip" aria-label="Our partners">
         <div class="logo_viewport" id="logo-scroller" tabindex="0">
@@ -131,6 +145,110 @@
         </div>
       </section>
 
+      <!-- Why Us -->
+      <section id="why-us" class="why-us section light-bg">
+        <div class="wu-container">
+          <div class="wu-grid">
+            <div class="wu-left">
+              <h2>
+                Eum ipsam laborum deleniti
+                <strong>velit pariatur architecto aut nihil</strong>
+              </h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
+                aute irure dolor in reprehenderit
+              </p>
+
+              <div class="wu-accordion">
+                <details>
+                  <summary>
+                    <span class="num">01</span>
+                    <span class="q">Non consectetur a erat nam at lectus urna duis?</span>
+                    <span class="chev" aria-hidden="true">›</span>
+                  </summary>
+                  <div class="ans">
+                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet
+                    non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus.
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="num">02</span>
+                    <span class="q">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</span>
+                    <span class="chev" aria-hidden="true">›</span>
+                  </summary>
+                  <div class="ans">
+                    Dolor sit amet consectetur adipiscing elit pellentesque. Euismod in pellentesque massa
+                    placerat duis ultricies lacus. Nisl nisi scelerisque eu ultrices vitae.
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="num">03</span>
+                    <span class="q">Dolor sit amet consectetur adipiscing elit pellentesque?</span>
+                    <span class="chev" aria-hidden="true">›</span>
+                  </summary>
+                  <div class="ans">
+                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Lobortis
+                    scelerisque fermentum dui faucibus in ornare quam viverra.
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <div class="wu-right">
+              <picture>
+                <img src="img/why-us.png" alt="Why choose us illustration" loading="lazy" />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills / Progress Bars -->
+      <section id="skills" class="skills section">
+        <div class="sk-container">
+          <div class="sk-grid">
+            <div class="sk-image">
+              <img
+                src="img/illustration-10.webp"
+                alt="Team reviewing checklist with progress"
+                loading="lazy"
+              />
+            </div>
+            <div class="sk-content">
+              <h2>Voluptatem dignissimos provident quasi corporis voluptas</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+
+              <div class="sk-bars">
+                <div class="bar" style="--value: 100%">
+                  <div class="label"><span>HTML</span><span class="percent">100%</span></div>
+                  <div class="track"><span class="value" aria-hidden="true"></span></div>
+                </div>
+                <div class="bar" style="--value: 90%">
+                  <div class="label"><span>CSS</span><span class="percent">90%</span></div>
+                  <div class="track"><span class="value" aria-hidden="true"></span></div>
+                </div>
+                <div class="bar" style="--value: 75%">
+                  <div class="label"><span>JAVASCRIPT</span><span class="percent">75%</span></div>
+                  <div class="track"><span class="value" aria-hidden="true"></span></div>
+                </div>
+                <div class="bar" style="--value: 55%">
+                  <div class="label"><span>PHOTOSHOP</span><span class="percent">55%</span></div>
+                  <div class="track"><span class="value" aria-hidden="true"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="services" class="services light-bg">
         <div class="section-title">
           <h2>Services</h2>
@@ -142,7 +260,7 @@
 
         <div class="services-wrap">
           <div class="services-grid">
-            <article class="service-card">
+            <article class="service-card" id="srv-design">
               <div class="icon" aria-hidden="true">
                 <svg
                   viewBox="0 0 48 48"
@@ -160,9 +278,9 @@
               <h3>
                 <a
                   class="stretched"
-                  href="#"
-                  aria-label="Read more about Lorem Ipsum"
-                  >Lorem Ipsum</a
+                  href="#srv-design"
+                  aria-label="Read more about Web Design"
+                  >Web Design</a
                 >
               </h3>
               <p>
@@ -171,7 +289,7 @@
               </p>
             </article>
 
-            <article class="service-card">
+            <article class="service-card" id="srv-dev">
               <div class="icon" aria-hidden="true">
                 <svg
                   viewBox="0 0 48 48"
@@ -193,9 +311,9 @@
               <h3>
                 <a
                   class="stretched"
-                  href="#"
-                  aria-label="Read more about Sed ut perspici"
-                  >Sed ut perspici</a
+                  href="#srv-dev"
+                  aria-label="Read more about Web Development"
+                  >Web Development</a
                 >
               </h3>
               <p>
@@ -204,7 +322,7 @@
               </p>
             </article>
 
-            <article class="service-card">
+            <article class="service-card" id="srv-marketing">
               <div class="icon" aria-hidden="true">
                 <svg
                   viewBox="0 0 48 48"
@@ -224,9 +342,9 @@
               <h3>
                 <a
                   class="stretched"
-                  href="#"
-                  aria-label="Read more about Magni Dolores"
-                  >Magni Dolores</a
+                  href="#srv-marketing"
+                  aria-label="Read more about Marketing"
+                  >Marketing</a
                 >
               </h3>
               <p>
@@ -687,6 +805,57 @@
         </div>
       </section>
 
+      <!-- Pricing -->
+      <section id="pricing" class="pricing section light-bg">
+        <div class="pr-container section-title">
+          <h2>PRICING</h2>
+          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        </div>
+
+        <div class="pr-container">
+          <div class="pricing-grid">
+            <article class="pricing-card">
+              <h3>Free Plan</h3>
+              <p class="price"><span class="currency">$</span><span class="amount">0</span><span class="period">/ month</span></p>
+              <ul class="features">
+                <li class="ok">Quam adipiscing vitae proin</li>
+                <li class="ok">Nec feugiat nisl pretium</li>
+                <li class="ok">Nulla at volutpat diam uteera</li>
+                <li class="no">Pharetra massa massa ultricies</li>
+                <li class="no">Massa ultricies mi quis hendrerit</li>
+              </ul>
+              <a href="#contact" class="btn-outline">Buy Now</a>
+            </article>
+
+            <article class="pricing-card featured">
+              <h3>Business Plan</h3>
+              <p class="price"><span class="currency">$</span><span class="amount">29</span><span class="period">/ month</span></p>
+              <ul class="features">
+                <li class="ok">Quam adipiscing vitae proin</li>
+                <li class="ok">Nec feugiat nisl pretium</li>
+                <li class="ok">Nulla at volutpat diam uteera</li>
+                <li class="ok">Pharetra massa massa ultricies</li>
+                <li class="ok">Massa ultricies mi quis hendrerit</li>
+              </ul>
+              <a href="#contact" class="btn-primary">Buy Now</a>
+            </article>
+
+            <article class="pricing-card">
+              <h3>Developer Plan</h3>
+              <p class="price"><span class="currency">$</span><span class="amount">49</span><span class="period">/ month</span></p>
+              <ul class="features">
+                <li class="ok">Quam adipiscing vitae proin</li>
+                <li class="ok">Nec feugiat nisl pretium</li>
+                <li class="ok">Nulla at volutpat diam uteera</li>
+                <li class="ok">Pharetra massa massa ultricies</li>
+                <li class="ok">Massa ultricies mi quis hendrerit</li>
+              </ul>
+              <a href="#contact" class="btn-outline">Buy Now</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section
         id="recent-blog-postst "
         class="recent-blog-postst section light-background"
@@ -821,6 +990,137 @@
                 </div>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="testimonials section light-bg">
+        <div class="tn-container section-title">
+          <h2>What Our Clients Say</h2>
+          <p>Real feedback from teams we’ve partnered with</p>
+        </div>
+
+        <div class="tn-container">
+          <div class="tn-grid">
+            <article class="tn-card">
+              <div class="tn-quote">“The team delivered above expectations and on time.”</div>
+              <div class="tn-person">
+                <div class="avatar" aria-hidden="true">A</div>
+                <div class="info">
+                  <strong>Alex Johnson</strong>
+                  <span>Product Lead, PixelCorp</span>
+                </div>
+              </div>
+              <div class="tn-stars" aria-label="5 out of 5 stars">
+                <span>★★★★★</span>
+              </div>
+            </article>
+
+            <article class="tn-card">
+              <div class="tn-quote">“Clear communication and great results. Highly recommended.”</div>
+              <div class="tn-person">
+                <div class="avatar" aria-hidden="true">S</div>
+                <div class="info">
+                  <strong>Sara Lee</strong>
+                  <span>Founder, NovaApps</span>
+                </div>
+              </div>
+              <div class="tn-stars" aria-label="5 out of 5 stars">
+                <span>★★★★★</span>
+              </div>
+            </article>
+
+            <article class="tn-card">
+              <div class="tn-quote">“From concept to launch, everything went smoothly.”</div>
+              <div class="tn-person">
+                <div class="avatar" aria-hidden="true">M</div>
+                <div class="info">
+                  <strong>Michael Chen</strong>
+                  <span>CTO, BrightPath</span>
+                </div>
+              </div>
+              <div class="tn-stars" aria-label="5 out of 5 stars">
+                <span>★★★★★</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- FAQ -->
+      <section id="faq" class="faq section light-bg">
+        <div class="faq-container section-title">
+          <h2>FREQUENTLY ASKED QUESTIONS</h2>
+          <p>
+            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
+            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+            Quia fugiat sit in iste officiis commodi quidem hic quas.
+          </p>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-list">
+            <details open>
+              <summary>
+                <span class="ico" aria-hidden="true">?</span>
+                <span class="q">Non consectetur a erat nam at lectus urna duis?</span>
+                <span class="chev" aria-hidden="true">›</span>
+              </summary>
+              <div class="answer">
+                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur
+                gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                <span class="ico" aria-hidden="true">?</span>
+                <span class="q">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</span>
+                <span class="chev" aria-hidden="true">›</span>
+              </summary>
+              <div class="answer">
+                Dolor sit amet consectetur adipiscing elit pellentesque. Eu volutpat odio facilisis mauris sit amet
+                massa vitae tortor. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                <span class="ico" aria-hidden="true">?</span>
+                <span class="q">Dolor sit amet consectetur adipiscing elit pellentesque?</span>
+                <span class="chev" aria-hidden="true">›</span>
+              </summary>
+              <div class="answer">
+                Et netus et malesuada fames ac turpis egestas. Sed viverra ipsum nunc aliquet bibendum enim facilisis
+                gravida neque convallis a cras semper.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                <span class="ico" aria-hidden="true">?</span>
+                <span class="q">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</span>
+                <span class="chev" aria-hidden="true">›</span>
+              </summary>
+              <div class="answer">
+                Accumsan tortor posuere ac ut consequat semper viverra. At lectus urna duis convallis convallis
+                tellus id interdum velit laoreet.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                <span class="ico" aria-hidden="true">?</span>
+                <span class="q">Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</span>
+                <span class="chev" aria-hidden="true">›</span>
+              </summary>
+              <div class="answer">
+                Nisi quis eleifend quam adipiscing vitae proin sagittis. Amet nisl suscipit adipiscing bibendum est
+                ultricies integer quis auctor elit.
+              </div>
+            </details>
           </div>
         </div>
       </section>
@@ -1036,6 +1336,10 @@
         </p>
       </div>
     </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
     <script src="js/main.js"></script>
   </body>
 </html>
