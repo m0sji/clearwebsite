@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI în Acțiune</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <header id="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav_brand" href="#">
+          <img
+            src="{% static 'img/inteligenta_artificiala_in_actiune_clean.png' %}"
+            alt="AI în Acțiune"
+          />
+        </a>
+
+        <button
+          class="nav_toggle"
+          aria-label="Open menu"
+          aria-controls="nav-menu"
+          aria-expanded="false"
+          type="button"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+
+        <ul id="nav-menu" class="nav_menu">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#blogjmp">Blog</a></li>
+          <li class="dropdown">
+            <button
+              class="dropdown_toggle"
+              aria-haspopup="true"
+              aria-expanded="false"
+              type="button"
+            >
+              Dropdown <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown_menu" role="menu">
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a class="nav_cta_btn" href="#contact">Get Started</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section id="hero" class="hero">
+        <div class="hero__inner">
+          <div class="hero__left">
+            <h1>Better Solutions For Your Business</h1>
+            <p>We are a team of talented designers making websites with Bootstrap</p>
+            <div class="hero__actions">
+              <a href="#contact" class="btn-get-started">Get Started</a>
+              <a href="" class="btn-watch-video" target="_blank">
+                <span>Watch Video</span>
+              </a>
+            </div>
+          </div>
+          <div class="hero__right">
+            <img
+              src="{% static 'img/herosec.png' %}"
+              alt="Hero illustration"
+              class="animated"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="logo_strip" aria-label="Our partners">
+        <div class="logo_viewport" id="logo-scroller" tabindex="0">
+          <ul class="logo_track" id="logo-track">
+            <li class="logo_item"><img src="{% static 'img/clients-1.webp' %}" /></li>
+            <li class="logo_item"><img src="{% static 'img/clients-2.webp' %}" /></li>
+            <li class="logo_item"><img src="{% static 'img/clients-3.webp' %}" /></li>
+            <li class="logo_item"><img src="{% static 'img/clients-4.webp' %}" /></li>
+            <li class="logo_item"><img src="{% static 'img/clients-5.webp' %}" /></li>
+            <li class="logo_item"><img src="{% static 'img/clients-6.webp' %}" /></li>
+            <li class="logo_item"><img src="{% static 'img/clients-7.webp' %}" /></li>
+            <li class="logo_item"><img src="{% static 'img/clients-8.webp' %}" /></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Other sections ... -->
+      <!-- Make sure you replace every `src="img/...` or `href="css/...` or `src="js/...` -->
+      <!-- with {% static 'path/to/file' %} -->
+
+    </main>
+
+    <footer id="site-footer" class="footer">
+      <div class="newsletter">
+        <h2>Join Our Newsletter</h2>
+        <p>Subscribe to get the latest news about our products and services.</p>
+
+        <form class="newsletter-form" action="#" method="post">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-top">
+        <div class="col">
+          <h3>AI în Acțiune</h3>
+          <p>Chișinău<br />Moldova, MD 2060</p>
+          <p>
+            <b>Phone:</b> +373 69445716<br />
+            <b>Email:</b> info@example.com
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="year"></span> <strong>AI în Acțiune</strong>. All
+          Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">
+      ↑
+    </button>
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>
