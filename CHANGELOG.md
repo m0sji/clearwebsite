@@ -64,3 +64,31 @@
   - `backend/templates/index.html` — replaced placeholder text with finalized descriptive content across all sections.
 - Branch: `feature/add-useful-text-section`
 - Purpose: improve content quality, clarity, and project presentation.
+
+- ## 2.11.2025-30.11.2025
+
+### Added
+
+- ROI(return on investment) calculator section with revenue uplift, support savings, payback outputs, copy-to-clipboard, and a CTA that pre-fills the contact form.
+- AI Project Estimator (chatbot/classifier/OCR with volume + SLA inputs) that calculates effort, timeline, and price bands, plus a “request custom quote” handoff.
+- Lead Triage Wizard scoring use case, data readiness, budget, and timeline to recommend Starter/Growth/Scale and prefill contact/CRM context.
+- Industry Matcher mapping industry + goal to a relevant proof point and pre-filling the contact form with that context.
+- Contact form status feedback and CRM POST that include ROI/estimator/triage/matcher summaries.
+- Navigation link to the ROI section for quick access.
+
+### Changed
+
+- Tuned ROI defaults (uplift/deflection/hourly/effort assumptions) and lowered project-cost heuristic for more realistic payback.
+- Restyled ROI section to match the site’s light theme for consistency with other sections.
+
+### Fixed
+
+- Prefill helpers avoid duplicating context blocks when multiple CTAs are clicked before sending.
+
+### Technical Notes
+
+- Files updated:
+  - `website/index.html` — added ROI nav link; adjusted ROI defaults; added Estimator, Triage, and Matcher sections with CTAs.
+  - `website/js/main.js` — ROI summary storage; estimator/triage/matcher calculations and contact prefills; contact payload now sends ROI/estimator/triage/matcher summaries with status messaging.
+  - `website/css/style.css` — light-themed ROI styles; shared styling for estimator/triage/matcher cards and form status messages.
+- CRM endpoint is set as `/api/lead`; replace with your actual backend/CRM URL.
