@@ -1389,6 +1389,25 @@ body {
   gap: 18px;
   height: 100%;
 }
+.form-status {
+  margin-top: 4px;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #eef2ff;
+  color: #1f2937;
+  border: 1px solid #c7d2fe;
+}
+.form-status[data-state="success"] {
+  background: #ecfdf3;
+  border-color: #bbf7d0;
+  color: #166534;
+}
+.form-status[data-state="error"] {
+  background: #fef2f2;
+  border-color: #fecdd3;
+  color: #991b1b;
+}
 .fields-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1785,3 +1804,72 @@ textarea:-webkit-autofill {
 .faq .faq-list .chev { color: #9ca3af; font-size: 22px; transform: rotate(0deg); transition: transform 0.25s ease; }
 .faq .faq-list details[open] .chev { transform: rotate(90deg); }
 .faq .faq-list .answer { padding: 0 18px 16px 62px; color: #374151; line-height: 1.6; }
+
+/* ROI calculator */
+.roi { background: #f7fafc; color: var(--text); }
+.roi .section-title h2 { color: var(--primary); }
+.roi .section-title p { color: #4b5563; }
+.roi-container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+.roi-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); align-items: start; }
+.roi-card { background: #ffffff; border: 1px solid #e5e9f2; border-radius: 14px; padding: 1.25rem; box-shadow: 0 10px 24px rgba(0,0,0,0.06); }
+.roi-card h3 { margin: 0 0 0.9rem; color: #111827; }
+.roi-card label { display: flex; flex-direction: column; gap: 0.35rem; color: #4b5563; font-size: 0.95rem; margin-bottom: 0.8rem; }
+.roi-card input { border: 1px solid #d1d5db; background: #fff; color: #111827; border-radius: 10px; padding: 0.65rem 0.75rem; font-size: 0.95rem; }
+.roi-card input:focus { outline: 2px solid #47b2e4; border-color: #47b2e4; }
+.roi-card button { width: 100%; margin-top: 0.6rem; }
+.roi-result { border: 1px solid #c1e8ff; background: linear-gradient(160deg, rgba(71, 178, 228, 0.12), rgba(137, 207, 240, 0.08)); }
+.roi-stats { display: grid; gap: 0.9rem; }
+.roi-stats p { margin: 0 0 0.2rem; color: #4b5563; }
+.roi-stats strong { font-size: 1.4rem; color: #0f172a; }
+.roi-note { margin: 0.8rem 0; color: #6b7280; }
+.roi-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.roi-actions .btn-primary,
+.roi-actions .btn-outline { flex: 1 1 140px; text-align: center; }
+.roi-copy-msg { margin-top: 0.35rem; color: #2563eb; font-size: 0.9rem; }
+@media (max-width: 768px) { .roi-grid { grid-template-columns: 1fr; } }
+
+/* Estimator / Triage / Matcher */
+.estimator-container,
+.triage-container,
+.matcher-container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+.estimator-grid,
+.triage-grid,
+.matcher-grid { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); align-items: start; }
+.estimator-card,
+.triage-card,
+.matcher-card { background: #ffffff; border: 1px solid #e5e9f2; border-radius: 14px; padding: 1.25rem; box-shadow: 0 10px 24px rgba(0,0,0,0.06); }
+.estimator-card h3,
+.triage-card h3,
+.matcher-card h3 { margin: 0 0 0.9rem; color: #111827; }
+.estimator-card label,
+.triage-card label,
+.matcher-card label { display: flex; flex-direction: column; gap: 0.35rem; color: #4b5563; font-size: 0.95rem; margin-bottom: 0.8rem; }
+.estimator-card input,
+.triage-card select,
+.estimator-card select,
+.matcher-card select { border: 1px solid #d1d5db; background: #fff; color: #111827; border-radius: 10px; padding: 0.65rem 0.75rem; font-size: 0.95rem; }
+.estimator-card input:focus,
+.triage-card select:focus,
+.estimator-card select:focus,
+.matcher-card select:focus { outline: 2px solid #47b2e4; border-color: #47b2e4; }
+.estimator-card button,
+.triage-card button,
+.matcher-card button { width: 100%; margin-top: 0.6rem; }
+.estimator-result,
+.triage-result,
+.matcher-result { border: 1px solid #c1e8ff; background: linear-gradient(160deg, rgba(71, 178, 228, 0.12), rgba(137, 207, 240, 0.08)); }
+.est-stats,
+.triage-stats { display: grid; gap: 0.9rem; }
+.est-stats p,
+.triage-stats p { margin: 0 0 0.2rem; color: #4b5563; }
+.est-stats strong,
+.triage-stats strong { font-size: 1.2rem; color: #0f172a; }
+.est-note,
+.triage-note,
+.matcher-case { margin: 0.8rem 0; color: #6b7280; }
+.matcher-quote { margin: 0.2rem 0 0; color: #111827; font-weight: 600; }
+@media (max-width: 768px) {
+  .estimator-grid,
+  .triage-grid,
+  .matcher-grid { grid-template-columns: 1fr; }
+}
