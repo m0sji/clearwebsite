@@ -69,26 +69,23 @@
 
 ### Added
 
-- ROI(return on investment) calculator section with revenue uplift, support savings, payback outputs, copy-to-clipboard, and a CTA that pre-fills the contact form.
-- AI Project Estimator (chatbot/classifier/OCR with volume + SLA inputs) that calculates effort, timeline, and price bands, plus a “request custom quote” handoff.
-- Lead Triage Wizard scoring use case, data readiness, budget, and timeline to recommend Starter/Growth/Scale and prefill contact/CRM context.
-- Industry Matcher mapping industry + goal to a relevant proof point and pre-filling the contact form with that context.
-- Contact form status feedback and CRM POST that include ROI/estimator/triage/matcher summaries.
-- Navigation link to the ROI section for quick access.
+-Lead scoring and routing on contact submissions: score by role/budget/timeline/intent, classify priority (hot/normal/low), and trigger hot-lead webhook notifications (via LEAD_WEBHOOK_URL).
+-Newsletter/contact intake enhancements: subscriber status/reactivation, source tracking, and ROI context capture for downstream CRM/lead use.
 
 ### Changed
 
-- Tuned ROI defaults (uplift/deflection/hourly/effort assumptions) and lowered project-cost heuristic for more realistic payback.
-- Restyled ROI section to match the site’s light theme for consistency with other sections.
+- Unified contact/subscribe API responses to {success, message/error} and added per-IP/email throttling to reduce spam.
+- Frontend forms now POST to /api/subscribe/ and /api/contact/ with status messaging and stored ROI context included.
 
 ### Fixed
 
-- Prefill helpers avoid duplicating context blocks when multiple CTAs are clicked before sending.
+- Backend subscribe flow aligned with subscriber fields and duplicate handling; consistent responses consumed by the frontend.
 
 ### Technical Notes
 
 - Files updated:
-  - `website/index.html` — added ROI nav link; adjusted ROI defaults; added Estimator, Triage, and Matcher sections with CTAs.
-  - `website/js/main.js` — ROI summary storage; estimator/triage/matcher calculations and contact prefills; contact payload now sends ROI/estimator/triage/matcher summaries with status messaging.
-  - `website/css/style.css` — light-themed ROI styles; shared styling for estimator/triage/matcher cards and form status messages.
-- CRM endpoint is set as `/api/lead`; replace with your actual backend/CRM URL.
+  - backend/api/models.py — added lead_score/priority for ContactMessage; status/source/last_confirmed_at for Subscriber.
+  - backend/api/views.py — lead scoring heuristics, priority classification, hot-lead webhook dispatch, subscriber reactivation, consistent JSON responses, and rate limiting.
+  - backend/api/migrations/0002_extend_subscriber_contactmessage.py, 0003_contactmessage_lead_scoring.py — schema changes for intake tracking and lead scoring.
+  - backend/api/admin.py — surfaced lead score/priority for triage in Django Admin.
+  - backend/static/js/main.js, website/js/main.js — hooked newsletter/contact forms to backend APIs with ROI context and inline status feedback.
