@@ -54,10 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
       msg.hidden = true;
 
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/subscribe/", {
+        const response = await fetch("/api/subscribe/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ email, source: "footer_form" }),
         });
 
         const data = await response.json();
@@ -75,6 +75,96 @@ document.addEventListener("DOMContentLoaded", () => {
 
       msg.hidden = false;
       setTimeout(() => (msg.hidden = true), 5000);
+    });
+  }
+
+  // Lead context helpers for ROI/estimators stored in sessionStorage
+  const readFromSession = (key) => {
+    try {
+      return sessionStorage.getItem(key);
+    } catch (_err) {
+      return null;
+    }
+  };
+
+  const collectLeadContext = () => {
+    const ctx = {};
+    ["roi_summary", "estimator_summary", "triage_summary", "matcher_summary"].forEach((key) => {
+      const raw = readFromSession(key);
+      if (!raw) return;
+      try {
+        ctx[key] = JSON.parse(raw);
+      } catch (e) {
+        ctx[key] = raw;
+      }
+    });
+    return Object.keys(ctx).length ? ctx : null;
+  };
+
+  // Contact form → /api/contact/ with ROI context + status messages
+  const contactForm = document.querySelector(".form-outer");
+  if (contactForm) {
+    const statusMsg = document.createElement("div");
+    statusMsg.className = "form-status";
+    statusMsg.hidden = true;
+    contactForm.appendChild(statusMsg);
+
+    const inputs = {
+      name: contactForm.querySelector('[name="name"]'),
+      email: contactForm.querySelector('[name="email"]'),
+      subject: contactForm.querySelector('[name="subject"]'),
+      message: contactForm.querySelector('[name="message"]'),
+    };
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = inputs.name?.value.trim() || "";
+      const email = inputs.email?.value.trim() || "";
+      const subject = inputs.subject?.value.trim() || "";
+      const message = inputs.message?.value.trim() || "";
+
+      if (!name || !email || !message) {
+        statusMsg.textContent = "Please fill in name, email, and message.";
+        statusMsg.classList.add("is-error");
+        statusMsg.hidden = false;
+        return;
+      }
+      if (!inputs.email?.checkValidity?.()) {
+        inputs.email?.reportValidity?.();
+        return;
+      }
+
+      const payload = { name, email, subject, message, source: "contact_form" };
+      const ctx = collectLeadContext();
+      if (ctx) {
+        Object.assign(payload, ctx);
+        payload.context = ctx;
+      }
+
+      statusMsg.hidden = true;
+      statusMsg.classList.remove("is-error");
+
+      try {
+        const response = await fetch("/api/contact/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          statusMsg.textContent = data.message || "Message sent. We will reply soon.";
+          contactForm.reset();
+        } else {
+          statusMsg.textContent = data.error || data.message || "We could not send your message.";
+          statusMsg.classList.add("is-error");
+        }
+      } catch (err) {
+        statusMsg.textContent = "Cannot reach the server. Please try again shortly.";
+        statusMsg.classList.add("is-error");
+      }
+
+      statusMsg.hidden = false;
     });
   }
 
