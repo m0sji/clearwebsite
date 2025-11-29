@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   applyShadow();
-
   window.addEventListener("scroll", applyShadow, { passive: true });
   window.addEventListener("resize", applyShadow);
 
@@ -32,12 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
       toggle.setAttribute("aria-expanded", String(open));
     });
 
-    menu
-      .querySelectorAll("a")
-      .forEach((a) => a.addEventListener("click", closeMenu));
+    menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
   }
 
-  /*feedback*/
+  /* Newsletter subscription with Django backend */
   const form = document.querySelector("#site-footer .newsletter-form");
   if (form) {
     const emailInput = form.querySelector('input[type="email"]');
@@ -46,16 +43,128 @@ document.addEventListener("DOMContentLoaded", () => {
     msg.hidden = true;
     form.appendChild(msg);
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!emailInput?.value.trim() || !emailInput.checkValidity()) {
         emailInput?.reportValidity?.();
         return;
       }
+
       const email = emailInput.value.trim();
-      msg.textContent = `Mulțumim! Te vom anunța pe ${email}.`;
+      msg.hidden = true;
+
+      try {
+        const response = await fetch("/api/subscribe/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, source: "footer_form" }),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          msg.textContent = `Multumim! Te vom anunta pe ${email}.`;
+        } else if (data.error) {
+          msg.textContent = data.error;
+        } else {
+          msg.textContent = "A aparut o eroare. Incearca din nou.";
+        }
+      } catch (err) {
+        msg.textContent = "Nu se poate conecta la server. Incearca mai tarziu.";
+      }
+
       msg.hidden = false;
-      setTimeout(() => (msg.hidden = true), 4000);
+      setTimeout(() => (msg.hidden = true), 5000);
+    });
+  }
+
+  // Lead context helpers for ROI/estimators stored in sessionStorage
+  const readFromSession = (key) => {
+    try {
+      return sessionStorage.getItem(key);
+    } catch (_err) {
+      return null;
+    }
+  };
+
+  const collectLeadContext = () => {
+    const ctx = {};
+    ["roi_summary", "estimator_summary", "triage_summary", "matcher_summary"].forEach((key) => {
+      const raw = readFromSession(key);
+      if (!raw) return;
+      try {
+        ctx[key] = JSON.parse(raw);
+      } catch (e) {
+        ctx[key] = raw;
+      }
+    });
+    return Object.keys(ctx).length ? ctx : null;
+  };
+
+  // Contact form -> /api/contact/ with ROI context + status messages
+  const contactForm = document.querySelector(".form-outer");
+  if (contactForm) {
+    const statusMsg = document.createElement("div");
+    statusMsg.className = "form-status";
+    statusMsg.hidden = true;
+    contactForm.appendChild(statusMsg);
+
+    const inputs = {
+      name: contactForm.querySelector('[name="name"]'),
+      email: contactForm.querySelector('[name="email"]'),
+      subject: contactForm.querySelector('[name="subject"]'),
+      message: contactForm.querySelector('[name="message"]'),
+    };
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = inputs.name?.value.trim() || "";
+      const email = inputs.email?.value.trim() || "";
+      const subject = inputs.subject?.value.trim() || "";
+      const message = inputs.message?.value.trim() || "";
+
+      if (!name || !email || !message) {
+        statusMsg.textContent = "Please fill in name, email, and message.";
+        statusMsg.classList.add("is-error");
+        statusMsg.hidden = false;
+        return;
+      }
+      if (!inputs.email?.checkValidity?.()) {
+        inputs.email?.reportValidity?.();
+        return;
+      }
+
+      const payload = { name, email, subject, message, source: "contact_form" };
+      const ctx = collectLeadContext();
+      if (ctx) {
+        Object.assign(payload, ctx);
+        payload.context = ctx;
+      }
+
+      statusMsg.hidden = true;
+      statusMsg.classList.remove("is-error");
+
+      try {
+        const response = await fetch("/api/contact/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+        if (data.success) {
+          statusMsg.textContent = data.message || "Message sent. We will reply soon.";
+          contactForm.reset();
+        } else {
+          statusMsg.textContent = data.error || data.message || "We could not send your message.";
+          statusMsg.classList.add("is-error");
+        }
+      } catch (err) {
+        statusMsg.textContent = "Cannot reach the server. Please try again shortly.";
+        statusMsg.classList.add("is-error");
+      }
+
+      statusMsg.hidden = false;
     });
   }
 
@@ -123,9 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Smooth-scroll active nav highlight on scroll
-  const navLinks = Array.from(
-    document.querySelectorAll('#nav-menu a[href^="#"]')
-  );
+  const navLinks = Array.from(document.querySelectorAll('#nav-menu a[href^="#"]'));
   const dropdownToggles = Array.from(document.querySelectorAll('.dropdown .dropdown_toggle'));
   if (navLinks.length) {
     const map = new Map();
@@ -174,13 +281,9 @@ document.addEventListener("DOMContentLoaded", () => {
     map.forEach((_, el) => observer.observe(el));
 
     // Also update active state on click immediately
-    navLinks.forEach((a) =>
-      a.addEventListener('click', () => {
-        setActive(a);
-      })
-    );
+    navLinks.forEach((a) => a.addEventListener('click', () => setActive(a)));
 
-    // If focus enters dropdown via keyboard, reflect active on toggle
+    // Handle dropdown focus
     dropdownToggles.forEach((btn) => {
       const dd = btn.closest('.dropdown');
       dd?.addEventListener('mouseenter', () => {
