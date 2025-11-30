@@ -1,0 +1,1121 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI în Acțiune</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <header id="site-header">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav_brand" href="#">
+          <img
+            src="{% static 'img/inteligenta_artificiala_in_actiune_clean.png' %}"
+            alt="AI în Acțiune"
+          />
+        </a>
+
+        <button
+          class="nav_toggle"
+          aria-label="Open menu"
+          aria-controls="nav-menu"
+          aria-expanded="false"
+          type="button"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+
+        <ul id="nav-menu" class="nav_menu">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#blogjmp">Blog</a></li>
+          <li class="dropdown">
+            <button class="dropdown_toggle" aria-haspopup="true" aria-expanded="false" type="button">
+              Dropdown <span class="caret" aria-hidden="true">▾</span>
+            </button>
+            <ul class="dropdown_menu" role="menu">
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#faq">FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a class="nav_cta_btn" href="#contact">Get Started</a>
+      </nav>
+    </header>
+    <main class="main">
+      <section id="hero" class="hero">
+        <div class="hero__inner">
+          <div class="hero__left">
+            <h1>AI solutions that accelerate decisions and reduce costs</h1>
+            <p>
+              We design, build and deploy production-ready AI systems — from data pipelines and models to UX and operations — so teams can focus on outcomes, not infrastructure.
+            </p>
+
+            <div class="hero__actions">
+              <a href="#contact" class="btn-get-started">Get Started</a>
+              <a href="" class="btn-watch-video" target="_blank">
+                <i aria-hidden="true"></i>
+                <span>Watch Video</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero__right">
+            <img
+              src="{% static 'img/herosec.png' %}"
+              alt="Hero illustration"
+              class="animated"
+            />
+          </div>
+        </div>
+      </section>
+
+      
+
+      <section class="logo_strip" aria-label="Our partners">
+        <div class="logo_viewport" id="logo-scroller" tabindex="0">
+          <ul class="logo_track" id="logo-track">
+            <li class="logo_item"><img src="{% static 'img/clients-1.webp' %}" alt="Client logo 1"/></li>
+            <li class="logo_item"><img src="{% static 'img/clients-2.webp' %}" alt="Client logo 2"/></li>
+            <li class="logo_item"><img src="{% static 'img/clients-3.webp' %}" alt="Client logo 3"/></li>
+            <li class="logo_item"><img src="{% static 'img/clients-4.webp' %}" alt="Client logo 4"/></li>
+            <li class="logo_item"><img src="{% static 'img/clients-5.webp' %}" alt="Client logo 5"/></li>
+            <li class="logo_item"><img src="{% static 'img/clients-6.webp' %}" alt="Client logo 6"/></li>
+            <li class="logo_item"><img src="{% static 'img/clients-7.webp' %}" alt="Client logo 7"/></li>
+            <li class="logo_item"><img src="{% static 'img/clients-8.webp' %}" alt="Client logo 8"/></li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="about" class="about">
+        <div class="about__container">
+          <header class="about__title">
+            <h2>ABOUT US</h2>
+          </header>
+
+          <div class="about__grid">
+            <div class="about__col">
+              <p>
+                AI în Acțiune helps companies convert raw data into measurable business value. We combine domain expertise, engineering and ML operations to deliver reliable AI features that integrate with your product and workflows.
+              </p>
+
+              <ul>
+                <li>
+                  <i class="check"></i
+                  ><span
+                    >Deployable models with monitored performance and rollback.</span
+                  >
+                </li>
+                <li>
+                  <i class="check"></i
+                  ><span
+                    >Production data pipelines that ensure data fidelity and privacy.</span
+                  >
+                </li>
+                <li>
+                  <i class="check"></i
+                  ><span>Business-driven KPIs and continuous improvement processes.</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="about__col">
+              <p>
+                We work with product teams to identify high-impact opportunities, prototype quickly, and scale solutions using reproducible engineering practices. Typical projects include forecasting, personalization, document understanding and process automation.
+              </p>
+
+              <a href="#contact" class="read-more"> Talk to an Expert <i>→</i> </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Us -->
+      <section id="why-us" class="why-us section light-bg">
+        <div class="wu-container">
+          <div class="wu-grid">
+            <div class="wu-left">
+              <h2>
+                Why choose us
+                <strong>Practical AI, fast iteration, measurable outcomes</strong>
+              </h2>
+              <p>
+                We prioritize features that reduce operating costs or increase revenue. Each project includes success metrics and a plan for ongoing maintenance.
+              </p>
+
+              <div class="wu-accordion">
+                <details>
+                  <summary>
+                    <span class="num">01</span>
+                    <span class="q">How do you ensure models stay accurate in production?</span>
+                    <span class="chev" aria-hidden="true">›</span>
+                  </summary>
+                  <div class="ans">
+                    We instrument key metrics, monitor data drift, and ship automated retraining or alerting. SLOs and canary deployments are standard for critical tasks.
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="num">02</span>
+                    <span class="q">What data security and privacy practices do you follow?</span>
+                    <span class="chev" aria-hidden="true">›</span>
+                  </summary>
+                  <div class="ans">
+                    We apply principle of least privilege, encryption-at-rest/in-transit, anonymization where needed, and GDPR-compliant data handling. Contracts include clear data usage terms.
+                  </div>
+                </details>
+
+                <details>
+                  <summary>
+                    <span class="num">03</span>
+                    <span class="q">How quickly can you deliver a working prototype?</span>
+                    <span class="chev" aria-hidden="true">›</span>
+                  </summary>
+                  <div class="ans">
+                    Typical discovery + prototype iterations run 4–8 weeks: problem framing, data readiness check, MVP model and integrated demo with basic monitoring.
+                  </div>
+                </details>
+              </div>
+            </div>
+
+            <div class="wu-right">
+              <picture>
+                <img src="{% static 'img/why-us.png' %}" alt="Why choose us illustration" loading="lazy" />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills / Progress Bars -->
+      <section id="skills" class="skills section">
+        <div class="sk-container">
+          <div class="sk-grid">
+            <div class="sk-image">
+              <img
+                src="{% static 'img/illustration-10.webp' %}"
+                alt="Team reviewing checklist with progress"
+                loading="lazy"
+              />
+            </div>
+            <div class="sk-content">
+              <h2>Core Capabilities</h2>
+              <p>
+                Data engineering, model development, MLOps and product integration — focused on reliability and ROI.
+              </p>
+
+              <div class="sk-bars">
+                <div class="bar" style="--value: 95%">
+                  <div class="label"><span>Data Engineering</span><span class="percent">95%</span></div>
+                  <div class="track"><span class="value" aria-hidden="true"></span></div>
+                </div>
+                <div class="bar" style="--value: 90%">
+                  <div class="label"><span>Modeling</span><span class="percent">90%</span></div>
+                  <div class="track"><span class="value" aria-hidden="true"></span></div>
+                </div>
+                <div class="bar" style="--value: 85%">
+                  <div class="label"><span>MLOps</span><span class="percent">85%</span></div>
+                  <div class="track"><span class="value" aria-hidden="true"></span></div>
+                </div>
+                <div class="bar" style="--value: 80%">
+                  <div class="label"><span>Product Integration</span><span class="percent">80%</span></div>
+                  <div class="track"><span class="value" aria-hidden="true"></span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="services light-bg">
+        <div class="section-title">
+          <h2>Services</h2>
+          <p>
+            Practical AI services: from discovery and prototyping to production and operations.
+          </p>
+        </div>
+
+        <div class="services-wrap">
+          <div class="services-grid">
+            <article class="service-card" id="srv-design">
+              <div class="icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 48 48"
+                  width="42"
+                  height="42"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M3 24h10l4-10 8 28 6-18h14" />
+                </svg>
+              </div>
+              <h3>
+                <a
+                  class="stretched"
+                  href="#srv-design"
+                  aria-label="Read more about Design"
+                  >Product & UX for AI</a
+                >
+              </h3>
+              <p>
+                We translate model outputs into usable interfaces and user flows so AI delivers clear business outcomes.
+              </p>
+            </article>
+
+            <article class="service-card" id="srv-dev">
+              <div class="icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 48 48"
+                  width="42"
+                  height="42"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="10" y="10" width="28" height="28" rx="4" />
+                  <circle cx="10" cy="10" r="3" />
+                  <circle cx="38" cy="10" r="3" />
+                  <circle cx="10" cy="38" r="3" />
+                  <circle cx="38" cy="38" r="3" />
+                </svg>
+              </div>
+              <h3>
+                <a
+                  class="stretched"
+                  href="#srv-dev"
+                  aria-label="Read more about Development"
+                  >Custom AI Development</a
+                >
+              </h3>
+              <p>
+                End-to-end engineering: data pipelines, feature stores, model training and scalable inference.
+              </p>
+            </article>
+
+            <article class="service-card" id="srv-marketing">
+              <div class="icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 48 48"
+                  width="42"
+                  height="42"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="6" y="10" width="36" height="30" rx="4" />
+                  <path d="M14 6v8M34 6v8M6 20h36" />
+                  <rect x="14" y="26" width="8" height="6" rx="1" />
+                </svg>
+              </div>
+              <h3>
+                <a
+                  class="stretched"
+                  href="#srv-marketing"
+                  aria-label="Read more about Analytics"
+                  >Data Science & Analytics</a
+                >
+              </h3>
+              <p>
+                Descriptive and predictive analytics to identify growth levers and optimize customer journeys.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <div class="icon" aria-hidden="true">
+                <svg
+                  viewBox="0 0 48 48"
+                  width="42"
+                  height="42"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="24" cy="34" r="3" fill="currentColor" />
+                  <path
+                    d="M15 27c5-5 13-5 18 0M9 21c8-8 22-8 30 0M3 15c11-11 31-11 42 0"
+                  />
+                </svg>
+              </div>
+              <h3>
+                <a
+                  class="stretched"
+                  href="#"
+                  aria-label="Read more about Automation"
+                  >Automation & Integration</a
+                >
+              </h3>
+              <p>
+                Automate repetitive work using RPA patterns, document understanding and API-driven orchestration.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="work-process" class="work-process section">
+        <div class="wp-container section-title">
+          <h2>Work Process</h2>
+          <p>
+            Clear milestones, measurable outcomes and production-grade delivery.
+          </p>
+        </div>
+
+        <div class="wp-container">
+          <div class="wp-grid">
+            <article class="steps-item">
+              <div class="steps-image">
+                <img
+                  src="{% static 'img/steps-1.webp' %}"
+                  alt="Research and Analysis"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="steps-content">
+                <div class="steps-number">01</div>
+                <h3>Discovery & Data Audit</h3>
+                <p>
+                  Assess business objectives, available data, and risks. Produce a prioritized roadmap and feasibility estimates.
+                </p>
+
+                <ul class="steps-features">
+                  <li class="feature-item"><span>Use-case prioritization</span></li>
+                  <li class="feature-item"><span>Data quality and gap analysis</span></li>
+                  <li class="feature-item"><span>Success metrics and ROI</span></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="steps-item">
+              <div class="steps-image">
+                <img
+                  src="{% static 'img/steps-2.webp' %}"
+                  alt="Design and Planning"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="steps-content">
+                <div class="steps-number">02</div>
+                <h3>Prototype & Validate</h3>
+                <p>
+                  Rapid prototyping to validate assumptions with limited production risk. Real data, minimal engineering to prove value.
+                </p>
+
+                <ul class="steps-features">
+                  <li class="feature-item"><span>Model experiments</span></li>
+                  <li class="feature-item"><span>Prototype UX</span></li>
+                  <li class="feature-item"><span>Stakeholder validation</span></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="steps-item">
+              <div class="steps-image">
+                <img
+                  src="{% static 'img/steps-3.webp' %}"
+                  alt="Development and Launch"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="steps-content">
+                <div class="steps-number">03</div>
+                <h3>Production & Operate</h3>
+                <p>
+                  Harden, deploy and monitor the solution. Establish retraining cadence, alerting and SLAs.
+                </p>
+
+                <ul class="steps-features">
+                  <li class="feature-item"><span>CI/CD for models</span></li>
+                  <li class="feature-item"><span>Monitoring & alerting</span></li>
+                  <li class="feature-item"><span>Operational handover</span></li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="portfolio" class="portfolio light-bg">
+        <div class="pf-container section-title">
+          <h2>Portfolio</h2>
+          <p>
+            Selected projects demonstrating measurable impact and production success.
+          </p>
+        </div>
+
+        <div class="pf-container">
+          <input type="radio" name="pf" id="pf-all" checked hidden />
+          <input type="radio" name="pf" id="pf-app" hidden />
+          <input type="radio" name="pf" id="pf-product" hidden />
+          <input type="radio" name="pf" id="pf-branding" hidden />
+
+          <ul class="portfolio-filters">
+            <li><label for="pf-all">All</label></li>
+            <li><label for="pf-app">Forecasting</label></li>
+            <li><label for="pf-product">NLP</label></li>
+            <li><label for="pf-branding">Automation</label></li>
+          </ul>
+
+          <div class="portfolio-grid">
+            <article class="portfolio-item app">
+              <img src="{% static 'img/portfolio-portrait-1.webp' %}" alt="Forecasting project" />
+            </article>
+            <article class="portfolio-item product">
+              <img src="{% static 'img/portfolio-1.webp' %}" alt="Document understanding" />
+            </article>
+            <article class="portfolio-item branding">
+              <img src="{% static 'img/portfolio-3.webp' %}" alt="Process automation" />
+            </article>
+
+            <article class="portfolio-item app">
+              <img src="{% static 'img/portfolio-4.webp' %}" alt="Buyer personalization" />
+            </article>
+            <article class="portfolio-item product">
+              <img src="{% static 'img/portfolio-portrait-2.webp' %}" alt="Search relevance" />
+            </article>
+            <article class="portfolio-item branding">
+              <img src="{% static 'img/portfolio-portrait-3.webp' %}" alt="Intelligent routing" />
+            </article>
+
+            <article class="portfolio-item app">
+              <img src="{% static 'img/portfolio-7.webp' %}" alt="Anomaly detection" />
+            </article>
+            <article class="portfolio-item product">
+              <img src="{% static 'img/portfolio-8.webp' %}" alt="Image classification" />
+            </article>
+            <article class="portfolio-item branding">
+              <img src="{% static 'img/portfolio-9.webp' %}" alt="Reporting automation" />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="team" class="team section">
+        <div class="team-container section-title">
+          <h2>Team</h2>
+          <p>
+            Cross-functional engineers, data scientists and product designers focused on reliable delivery.
+          </p>
+        </div>
+
+        <div class="team-container">
+          <div class="team-grid">
+            <article class="team-card">
+              <figure class="pic">
+                <img src="{% static 'img/person-m-7.webp' %}" alt="Walter White" />
+              </figure>
+              <div class="member-info">
+                <h4>Walter White</h4>
+                <span>CEO</span>
+                <p>
+                  Strategy and product; 10+ years bringing AI to production.
+                </p>
+                <nav class="social">
+                  <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                </nav>
+              </div>
+            </article>
+
+            <article class="team-card">
+              <figure class="pic">
+                <img src="{% static 'img/person-f-8.webp' %}" alt="Sarah Jhonson" />
+              </figure>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Head of Data Science</span>
+                <p>
+                  Leads model development and validation practices.
+                </p>
+                <nav class="social">
+                  <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                </nav>
+              </div>
+            </article>
+
+            <article class="team-card">
+              <figure class="pic">
+                <img src="{% static 'img/person-m-6.webp' %}" alt="William Anderson" />
+              </figure>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>CTO</span>
+                <p>
+                  Responsible for architecture, MLOps and scalable infra.
+                </p>
+                <nav class="social">
+                  <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                </nav>
+              </div>
+            </article>
+
+            <article class="team-card">
+              <figure class="pic">
+                <img src="{% static 'img/person-f-4.webp' %}" alt="Amanda Jepson" />
+              </figure>
+              <div class="member-info">
+                <h4>Amanda Jepson</h4>
+                <span>Engagement Manager</span>
+                <p>
+                  Ensures projects deliver on time and on budget.
+                </p>
+                <nav class="social">
+                  <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                </nav>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing -->
+      <section id="pricing" class="pricing section light-bg">
+        <div class="pr-container section-title">
+          <h2>PRICING</h2>
+          <p>Flexible engagement models: pilot, fixed-scope, or retained support.</p>
+        </div>
+
+        <div class="pr-container">
+          <div class="pricing-grid">
+            <article class="pricing-card">
+              <h3>Pilot</h3>
+              <p class="price"><span class="currency">€</span><span class="amount">0–5k</span><span class="period"> one-off</span></p>
+              <ul class="features">
+                <li class="ok">Feasibility study</li>
+                <li class="ok">Prototype model</li>
+                <li class="ok">Business case</li>
+                <li class="no">Production deployment</li>
+                <li class="no">Long-term support</li>
+              </ul>
+              <a href="#contact" class="btn-outline">Start a Pilot</a>
+            </article>
+
+            <article class="pricing-card featured">
+              <h3>Business</h3>
+              <p class="price"><span class="currency">€</span><span class="amount">custom</span><span class="period"> / project</span></p>
+              <ul class="features">
+                <li class="ok">End-to-end implementation</li>
+                <li class="ok">SLA and monitoring</li>
+                <li class="ok">Training & handover</li>
+                <li class="ok">Data governance</li>
+                <li class="ok">Ongoing support</li>
+              </ul>
+              <a href="#contact" class="btn-primary">Request Quote</a>
+            </article>
+
+            <article class="pricing-card">
+              <h3>Managed</h3>
+              <p class="price"><span class="currency">€</span><span class="amount">monthly</span><span class="period"> / support</span></p>
+              <ul class="features">
+                <li class="ok">Continuous monitoring</li>
+                <li class="ok">Scheduled retraining</li>
+                <li class="ok">Priority support</li>
+                <li class="ok">Model improvement roadmaps</li>
+                <li class="ok">Cost predictability</li>
+              </ul>
+              <a href="#contact" class="btn-outline">Contact Sales</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="recent-blog-postst "
+        class="recent-blog-postst section light-background"
+      >
+        <div class="rbp-container section-title">
+          <h2 id="blogjmp">Recent Blog Posts</h2>
+          <p>
+            Insights on applied AI, MLOps best practices, and customer case studies.
+          </p>
+        </div>
+
+        <div class="rbp-container">
+          <div class="rbp-grid">
+            <article class="post-item">
+              <div class="post-img">
+                <img src="{% static 'img/blog-post-3.webp' %}" loading="lazy" alt="Blog: production models"/>
+                <span class="post-date">Dec 12</span>
+              </div>
+
+              <div class="post-content">
+                <h3 class="post-title">
+                  <a href="blog-details.html"
+                    >How we keep models reliable in production</a
+                  >
+                </h3>
+
+                <div class="meta">
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="16"
+                      height="16"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"
+                      />
+                    </svg>
+                    <span>Ops Team</span>
+                  </span>
+                  <span class="sep">/</span>
+                  <span class="meta-item">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="16"
+                      height="16"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M10 4l2 2h6a2 2 0 0 1 2 2v1H4V6a2 2 0 0 1 2-2h4Zm10 6H4v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2Z"
+                      />
+                    </svg>
+                    <span>Engineering</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <article class="post-item">
+              <div class="post-img">
+                <img src="{% static 'img/blog-post-3.webp' %}" loading="lazy" alt="Blog: case study"/>
+                <span class="post-date">Jul 17</span>
+              </div>
+
+              <div class="post-content">
+                <h3 class="post-title">
+                  <a href="blog-details.html"
+                    >Case study: 30% reduction in manual processing time</a
+                  >
+                </h3>
+
+                <div class="meta">
+                  <span class="meta-item">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        fill="currentColor"
+                        d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"
+                      />
+                    </svg>
+                    <span>Product Team</span>
+                  </span>
+                  <span class="sep">/</span>
+                  <span class="meta-item">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        fill="currentColor"
+                        d="M10 4l2 2h6a2 2 0 0 1 2 2v1H4V6a2 2 0 0 1 2-2h4Zm10 6H4v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2Z"
+                      />
+                    </svg>
+                    <span>Case Study</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <article class="post-item">
+              <div class="post-img">
+                <img src="{% static 'img/blog-post-3.webp' %}" loading="lazy" alt="Blog: guide"/>
+                <span class="post-date">Sep 05</span>
+              </div>
+
+              <div class="post-content">
+                <h3 class="post-title">
+                  <a href="blog-details.html"
+                    >Guide: Choosing the right ML deployment strategy</a
+                  >
+                </h3>
+
+                <div class="meta">
+                  <span class="meta-item">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        fill="currentColor"
+                        d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.42 0-8 2.24-8 5v1h16v-1c0-2.76-3.58-5-8-5Z"
+                      />
+                    </svg>
+                    <span>Engineering</span>
+                  </span>
+                  <span class="sep">/</span>
+                  <span class="meta-item">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                      <path
+                        fill="currentColor"
+                        d="M10 4l2 2h6a2 2 0 0 1 2 2v1H4V6a2 2 0 0 1 2-2h4Zm10 6H4v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2Z"
+                      />
+                    </svg>
+                    <span>Best Practices</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="testimonials section light-bg">
+        <div class="tn-container section-title">
+          <h2>What Our Clients Say</h2>
+          <p>Real feedback from teams we’ve partnered with</p>
+        </div>
+
+        <div class="tn-container">
+          <div class="tn-grid">
+            <article class="tn-card">
+              <div class="tn-quote">“The solution reduced manual effort and delivered consistent results.”</div>
+              <div class="tn-person">
+                <div class="avatar" aria-hidden="true">A</div>
+                <div class="info">
+                  <strong>Alex Johnson</strong>
+                  <span>Product Lead, PixelCorp</span>
+                </div>
+              </div>
+              <div class="tn-stars" aria-label="5 out of 5 stars">
+                <span>★★★★★</span>
+              </div>
+            </article>
+
+            <article class="tn-card">
+              <div class="tn-quote">“Technical excellence and clear delivery — we saw ROI in under 6 months.”</div>
+              <div class="tn-person">
+                <div class="avatar" aria-hidden="true">S</div>
+                <div class="info">
+                  <strong>Sara Lee</strong>
+                  <span>Founder, NovaApps</span>
+                </div>
+              </div>
+              <div class="tn-stars" aria-label="5 out of 5 stars">
+                <span>★★★★★</span>
+              </div>
+            </article>
+
+            <article class="tn-card">
+              <div class="tn-quote">“From prototype to production – smooth handover and strong support.”</div>
+              <div class="tn-person">
+                <div class="avatar" aria-hidden="true">M</div>
+                <div class="info">
+                  <strong>Michael Chen</strong>
+                  <span>CTO, BrightPath</span>
+                </div>
+              </div>
+              <div class="tn-stars" aria-label="5 out of 5 stars">
+                <span>★★★★★</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- FAQ -->
+      <section id="faq" class="faq section light-bg">
+        <div class="faq-container section-title">
+          <h2>FREQUENTLY ASKED QUESTIONS</h2>
+          <p>
+            Answers to common questions about timelines, data requirements and operations.
+          </p>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-list">
+            <details open>
+              <summary>
+                <span class="ico" aria-hidden="true">?</span>
+                <span class="q">What data do you need to start?</span>
+                <span class="chev" aria-hidden="true">›</span>
+              </summary>
+              <div class="answer">
+                Minimal start requires a sample of historical data, a clear target (business KPI) and examples of expected outputs. We run a data readiness check during discovery.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                <span class="ico" aria-hidden="true">?</span>
+                <span class="q">How do you measure project success?</span>
+                <span class="chev" aria-hidden="true">›</span>
+              </summary>
+              <div class="answer">
+                Projects have defined success metrics (e.g., accuracy uplift, cost savings, conversion increase). We track both technical and business KPIs through launch and beyond.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                <span class="ico" aria-hidden="true">?</span>
+                <span class="q">Can you integrate with our existing systems?</span>
+                <span class="chev" aria-hidden="true">›</span>
+              </summary>
+              <div class="answer">
+                Yes — we build adapters and APIs to integrate models into your stack, and provide deployment patterns compatible with cloud or on-premise environments.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                <span class="ico" aria-hidden="true">?</span>
+                <span class="q">What ongoing maintenance is required?</span>
+                <span class="chev" aria-hidden="true">›</span>
+              </summary>
+              <div class="answer">
+                Maintenance can include monitoring, retraining schedules, data labeling, and periodic reviews. We offer managed plans for continuous operation.
+              </div>
+            </details>
+
+            <details>
+              <summary>
+                <span class="ico" aria-hidden="true">?</span>
+                <span class="q">How do you handle model explainability and bias?</span>
+                <span class="chev" aria-hidden="true">›</span>
+              </summary>
+              <div class="answer">
+                We run explainability checks, fairness audits and provide design changes or constraints to mitigate bias. Findings and mitigations are documented for stakeholders.
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact section">
+        <div class="ct-container section-title">
+          <h2>Contact</h2>
+          <p>
+            Tell us about your challenge. We’ll recommend the fastest way to test value.
+          </p>
+        </div>
+
+        <div class="ct-container">
+          <div class="ct-grid">
+            <aside class="info-card">
+              <div class="info-list">
+                <div class="info-item">
+                  <span class="icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="28"
+                      height="28"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"
+                      />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </span>
+                  <div class="text">
+                    <h3>Address</h3>
+                    <p>A108 Adam Street, Chișinău, Moldova</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <span class="icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="28"
+                      height="28"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.09 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.31 1.78.57 2.63a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.45-1.13a2 2 0 0 1 2.11-.45c.85.26 1.73.45 2.63.57a2 2 0 0 1 1.72 2.02Z"
+                      />
+                    </svg>
+                  </span>
+                  <div class="text">
+                    <h3>Call Us</h3>
+                    <p>+373 69445716</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <span class="icon" aria-hidden="true">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="28"
+                      height="28"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"
+                      />
+                      <path d="m22 6-10 7L2 6" />
+                    </svg>
+                  </span>
+                  <div class="text">
+                    <h3>Email Us</h3>
+                    <p>hello@aiinactiune.md</p>
+                  </div>
+                </div>
+              </div>
+
+              <iframe
+                title="Office location on map"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+              >
+              </iframe>
+            </aside>
+
+            <div class="form-card">
+              <form class="form-outer" action="#" method="post" novalidate>
+                <div class="fields-grid">
+                  <div class="field">
+                    <label for="ct-name">Your Name</label>
+                    <input
+                      id="ct-name"
+                      class="control"
+                      type="text"
+                      name="name"
+                      autocomplete="name"
+                    />
+                  </div>
+
+                  <div class="field">
+                    <label for="ct-email">Your Email</label>
+                    <input
+                      id="ct-email"
+                      class="control"
+                      type="email"
+                      name="email"
+                      autocomplete="email"
+                    />
+                  </div>
+
+                  <div class="field span-2">
+                    <label for="ct-subject">Subject</label>
+                    <input
+                      id="ct-subject"
+                      class="control"
+                      type="text"
+                      name="subject"
+                    />
+                  </div>
+
+                  <div class="field span-2">
+                    <label for="ct-message">Message</label>
+                    <textarea
+                      id="ct-message"
+                      class="control textarea"
+                      name="message"
+                      rows="10"
+                      placeholder="Briefly describe the business problem and available data"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="actions">
+                  <button type="submit" class="btn-primary">
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="site-footer" class="footer">
+      <div class="newsletter">
+        <h2>Join Our Newsletter</h2>
+        <p>Monthly updates: product releases, case studies and best practices for applied AI.</p>
+
+        <form class="newsletter-form" action="#" method="post">
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-top">
+        <div class="col">
+          <h3>AI în Acțiune</h3>
+          <p>Chișinău<br />Moldova, MD 2060</p>
+          <p>
+            <b>Phone:</b> +373 69445716<br />
+            <b>Email:</b> hello@aiinactiune.md
+          </p>
+        </div>
+
+        <div class="col">
+          <h4>Useful Links</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#srv-dev">Custom AI Development</a></li>
+            <li><a href="#srv-marketing">Data Science & Analytics</a></li>
+            <li><a href="#srv-design">Product & UX for AI</a></li>
+            <li><a href="#contact">Managed Services</a></li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <h4>Follow Us</h4>
+          <p>We’re on social media:</p>
+          <p class="social">
+            <a href="#">LinkedIn</a>
+            <a href="#">X</a>
+            <a href="#">Facebook</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="year"></span> <strong>AI în Acțiune</strong>. All
+          Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+# Changelog
+
+## 1.10.2025-2.11.2025
+
+### Added
+
+- Navigation CTA button `Get Started` on the right of the header.
+- Dropdown menu in navigation ("Dropdown") linking to `#testimonials` and `#faq`.
+- Smooth scrolling with header offset and section scroll margins.
+- Testimonials section with 3 testimonial cards.
+- FAQ section.
+- Pricing section with three plans.
+- "Why Us" section under About with illustration and accordion.
+- "Skills" section with progress bars;
+- Back‑to‑Top floating button that appears after scrolling and returns to top on click.
+- Backend API integration with Django:
+- Added api app to project for backend functionality.
+- Implemented /api/subscribe/ endpoint for newsletter subscriptions.
+- Implemented /api/contact/ endpoint for contact form submissions.
+- Created Subscriber and ContactMessage models with email, name, message, and timestamp fields.
+- Added validation for required fields and email format.
+- Prevented duplicate email subscriptions.
+- Added support for both JSON and form-encoded requests.
+- Integrated Django Admin registration for managing subscribers and messages.
+- Added CSRF-exempt decorators for frontend integration.
+- Provided clear success/error JSON responses for frontend JavaScript.
+- Configured settings.py and urls.py for API routing and static files.
+- New informative and contextual text content throughout the homepage.
+- Expanded hero, about, and footer sections with descriptive and relevant text.
+- Added short explanations in Services, Pricing, and Contact sections to improve clarity.
+- Included keywords and readable phrasing for improved SEO and user engagement.
+
+### Changed
+
+- Navigation layout and style to match design:
+  - Dark header bar, centered links, grid layout.
+  - Dropdown styling and desktop/mobile behaviors.
+- Home link updated to scroll to the hero section (`#hero`).
+- Refactored project structure under Django with backend integration.
+- Replaced static file references with Django {% static %} template tags.
+
+### Fixed
+
+- Fixed incorrect Home anchor (`#home` → `#hero`).
+- Fixed missing HttpResponse returns in API views.
+- Fixed image, CSS, and JS loading errors through proper Django static setup.
+- Replaced placeholder and lorem ipsum text with real, meaningful content related to **AI în Acțiune**.
+- Updated section headings and subheadings to better match the project's tone and purpose.
+- Improved grammar, consistency, and readability across all text blocks.
+- Adjusted button labels and call-to-action phrases for a clearer user flow.
+- Refined text alignment and spacing where new content affected layout.
+### Technical Notes
+
+- Files updated:
+  - `website/index.html` — navigation structure; added Testimonials, Pricing, FAQ, Why Us, Skills, Back‑to‑Top.
+  - `website/css/style.css` — header/nav overhaul; dropdown styles; new blocks for Testimonials, Pricing, FAQ, Why Us, Skills, Back‑to‑Top; smooth scroll and offsets.
+  - `website/js/main.js` — sticky header shadow; mobile menu; logo scroller; active link highlighting; dropdown active sync; Back‑to‑Top behavior; year injection.
+- backend/api/views.py — implemented subscribe and contact endpoints with validation and DB save.
+- backend/api/models.py — created Subscriber and ContactMessage models.
+- backend/api/admin.py — registered models in Django Admin.
+- backend/backend/settings.py — added api app, static file setup.
+- backend/backend/urls.py — added /api/ routes for backend endpoints.
+- File updated:
+  - `backend/templates/index.html` — replaced placeholder text with finalized descriptive content across all sections.
+- Branch: `feature/add-useful-text-section`
+- Purpose: improve content quality, clarity, and project presentation.
+
+- ## 2.11.2025-30.11.2025
+
+### Added
+
+- ROI(return on investment) calculator section with revenue uplift, support savings, payback outputs, copy-to-clipboard, and a CTA that pre-fills the contact form.
+- AI Project Estimator (chatbot/classifier/OCR with volume + SLA inputs) that calculates effort, timeline, and price bands, plus a “request custom quote” handoff.
+- Lead Triage Wizard scoring use case, data readiness, budget, and timeline to recommend Starter/Growth/Scale and prefill contact/CRM context.
+- Industry Matcher mapping industry + goal to a relevant proof point and pre-filling the contact form with that context.
+- Contact form status feedback and CRM POST that include ROI/estimator/triage/matcher summaries.
+- Navigation link to the ROI section for quick access.
+-Dark-mode toggle in the header with persistent theme state using localStorage and auto-detection of OS color preference.
+-Base .dark theme styles added as a minimal starter layer (background, text, sections), ready to extend across the site.
+-Dark-mode initialization script that:
+=Applies saved preference,
+=Falls back to system preference if nothing stored,
+-Syncs UI toggle state with active theme.
+=Dismissible announcement bar (promo text + “Book now” link) with:
+=Slide/fade styling,
+=Close (×) button,
+=Persistent dismiss state stored in localStorage.
+
+### Changed
+
+- Tuned ROI defaults (uplift/deflection/hourly/effort assumptions) and lowered project-cost heuristic for more realistic payback.
+- Restyled ROI section to match the site’s light theme for consistency with other sections.
+=Tuned ROI defaults (uplift/deflection/hourly/effort assumptions) and lowered project-cost heuristic for more realistic payback.
+-Restyled ROI section to match the site’s light theme for consistency with other sections.
+
+### Fixed
+
+- Prefill helpers avoid duplicating context blocks when multiple CTAs are clicked before sending.
+-Dark-mode toggle now correctly syncs UI state after page reload (localStorage persistence fix).
+-Announcement bar no longer appears again after dismissal thanks to stored dismiss state.
+-Prefill helpers avoid duplicating context blocks when multiple CTAs are clicked before sending.
+
+### Technical Notes
+
+- Files updated:
+  - `website/index.html` — added ROI nav link; adjusted ROI defaults; added Estimator, Triage, and Matcher sections with CTAs.
+  - `website/js/main.js` — ROI summary storage; estimator/triage/matcher calculations and contact prefills; contact payload now sends ROI/estimator/triage/matcher summaries with status messaging.
+  - `website/css/style.css` — light-themed ROI styles; shared styling for estimator/triage/matcher cards and form status messages.
+- CRM endpoint is set as `/api/lead`; replace with your actual backend/CRM URL.
+-website/index.html — added ROI nav link; added Estimator, Triage, and Matcher sections with CTAs; added dark-mode toggle button and announcement bar markup.
+
+-website/js/main.js — ROI summary storage; estimator/triage/matcher logic and prefills; contact payload improvements; theme persistence logic, OS-pref detection, announcement-bar dismiss handler.
+
+-website/css/style.css — light-themed ROI styles; shared styles for estimator/triage/matcher; form status messages;
+added .dark base styles (background, text, header, sections) and announcement-bar styling.
+-CRM endpoint is set as /api/lead; replace with your actual backend/CRM URL.
