@@ -79,16 +79,18 @@
 
 -Lead scoring and routing on contact submissions: score by role/budget/timeline/intent, classify priority (hot/normal/low), and trigger hot-lead webhook notifications (via LEAD_WEBHOOK_URL).
 -Newsletter/contact intake enhancements: subscriber status/reactivation, source tracking, and ROI context capture for downstream CRM/lead use.
-
+-Tuned ROI defaults (uplift/deflection/hourly/effort assumptions) and lowered project-cost heuristic for more realistic payback.
+-Restyled ROI section to match the site’s light theme for consistency with other sections.
 ### Changed
-
+-Header updated to include dark-mode toggle button next to nav controls.
+=Updated top-of-page layout to support the announcement bar without shifting content.
 - Unified contact/subscribe API responses to {success, message/error} and added per-IP/email throttling to reduce spam.
 - Frontend forms now POST to /api/subscribe/ and /api/contact/ with status messaging and stored ROI context included.
 
 ### Fixed
 
 - Backend subscribe flow aligned with subscriber fields and duplicate handling; consistent responses consumed by the frontend.
-
+=Prefill helpers avoid duplicating context blocks when multiple CTAs are clicked before sending.
 ### Technical Notes
 - Files added:
   - website/contact.html
@@ -103,3 +105,9 @@
   - backend/api/migrations/0002_extend_subscriber_contactmessage.py, 0003_contactmessage_lead_scoring.py — schema changes for intake tracking and lead scoring.
   - backend/api/admin.py — surfaced lead score/priority for triage in Django Admin.
   - backend/static/js/main.js, website/js/main.js — hooked newsletter/contact forms to backend APIs with ROI context and inline status feedback.
+
+=website/index.html — added ROI nav link; added Estimator, Triage, and Matcher sections with CTAs; added dark-mode toggle button and announcement bar markup.
+=website/js/main.js — ROI summary storage; estimator/triage/matcher logic and prefills; contact payload improvements; theme persistence logic, OS-pref detection, announcement-bar dismiss handler.
+=website/css/style.css — light-themed ROI styles; shared styles for estimator/triage/matcher; form status messages;
+-added .dark base styles (background, text, header, sections) and announcement-bar styling.
+=CRM endpoint is set as /api/lead; replace with your actual backend/CRM URL.
