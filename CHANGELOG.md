@@ -4,6 +4,11 @@
 
 ### Added
 
+- Added new Contact page (contact.html, contact.css, contact.js).
+- Added Contact link in navigation menu.
+- Implemented frontend form with name/email/message fields.
+- Added client-side validation and success/error message feedback.
+- Implemented contact.js to send form data to backend /api/contact/ endpoint.
 - Navigation CTA button `Get Started` on the right of the header.
 - Dropdown menu in navigation ("Dropdown") linking to `#testimonials` and `#faq`.
 - Smooth scrolling with header offset and section scroll margins.
@@ -32,6 +37,8 @@
 
 ### Changed
 
+- Updated index.html navigation to include Contact page link.
+- Improved file organization by adding new Contact assets in /website/.
 - Navigation layout and style to match design:
   - Dark header bar, centered links, grid layout.
   - Dropdown styling and desktop/mobile behaviors.
@@ -41,6 +48,7 @@
 
 ### Fixed
 
+- Fixed missing script/style paths for contact page (contact.js and contact.css now load correctly).
 - Fixed incorrect Home anchor (`#home` → `#hero`).
 - Fixed missing HttpResponse returns in API views.
 - Fixed image, CSS, and JS loading errors through proper Django static setup.
@@ -82,8 +90,14 @@
 - Backend subscribe flow aligned with subscriber fields and duplicate handling; consistent responses consumed by the frontend.
 
 ### Technical Notes
-
+- Files added:
+  - website/contact.html
+  - website/contact.css
+  - website/contact.js
+- Backend compatibility:
+  - Frontend form POSTs to /api/contact/ using JSON.
 - Files updated:
+  - website/index.html – added Contact link
   - backend/api/models.py — added lead_score/priority for ContactMessage; status/source/last_confirmed_at for Subscriber.
   - backend/api/views.py — lead scoring heuristics, priority classification, hot-lead webhook dispatch, subscriber reactivation, consistent JSON responses, and rate limiting.
   - backend/api/migrations/0002_extend_subscriber_contactmessage.py, 0003_contactmessage_lead_scoring.py — schema changes for intake tracking and lead scoring.
