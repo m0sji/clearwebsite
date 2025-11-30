@@ -1,0 +1,83 @@
+/* website/contact.css — simple, clean styles (merge with your main stylesheet) */
+
+:root {
+  --bg: #ffffff;
+  --text: #111;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --error: #b91c1c;
+  --success: #047857;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 0.6rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus, textarea:focus {
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+  border-color: var(--accent);
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.btn {
+  background: var(--accent);
+  color: white;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.result {
+  margin-top: 0.5rem;
+  min-height: 1.4rem;
+  font-size: 0.95rem;
+}
+
+.result.success { color: var(--success); }
+.result.error   { color: var(--error); }
